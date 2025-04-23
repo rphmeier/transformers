@@ -572,9 +572,7 @@ class Qwen2_5_VLIntegrationTest(unittest.TestCase):
 
             cap.release()
 
-        inputs = self.processor(text=[text], videos=[frames], return_tensors="pt").to(
-            torch_device
-        )
+        inputs = self.processor(text=[text], videos=[frames], return_tensors="pt").to(torch_device)
 
         # it should not matter whether two images are the same size or not
         output = model.generate(**inputs, max_new_tokens=30)
